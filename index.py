@@ -4,7 +4,7 @@ import numpy as np
 import os
 from PIL import Image
 import json
-from model.magiclens import MagicLensEmbeddding
+from model.model import MagicLens
 from cfg import Config
 
 from retrieve import Retriever
