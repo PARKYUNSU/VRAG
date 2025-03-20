@@ -6,13 +6,7 @@ import base64
 import requests
 from openai import AzureOpenAI
 
-
 class GenerativeReranker:
-    """
-    a class to find the best product for a person by creating a panoramic view image of 25 products,
-    arranging them into a 5x5 grid, and utilizing an LLM to rank these products
-    """
-
     def __init__(
         self,
         rowCount: int = 5,
@@ -20,15 +14,6 @@ class GenerativeReranker:
         cache_file: str = "cache.json",
         api_type: str = "openai",
     ) -> None:
-        """
-        initializes the GenerativeReranker with the specified row count, dimension, and a path to cache file
-
-        args:
-            rowCount: Number of images per row
-            dim: (width, height) of each thumbnail image
-            cache_file: file path to store cached responses
-            api_type: type of API to use ('openai' or 'azure_openai')
-        """
         self.rowCount = rowCount
         self.dim = dim
         self.combined_image = None
@@ -54,20 +39,6 @@ class GenerativeReranker:
             raise ValueError(f"Unsupported API type: {self.api_type}")
 
     def __call__(self, query, caption, images, infos) -> list[int]:
-        """
-        combines the query image and 24 retrieved images into a 5x5 panoramic view
-        inputs the combined image, caption, and infos to LLM
-        reranks the images based on these inputs, excluding the query image
-
-        args:
-            query: the query image
-            caption: description of the desired output images
-            images: list of 24 images retrieved from the dataset
-            infos: list of related information about each image and the person (e.g. hobbies, passion)
-
-        returns:
-            list of indices of the newly ranked images from most matched to least matched, excluding the query image
-        """
         cache_key = self.generate_cache_key(caption, infos)
         if cache_key in self.cache:
             ranked_indices, _ = self.cache[cache_key]
@@ -224,19 +195,6 @@ class GenerativeReranker:
     def generate_ranking_explanation_azure_openai(
         self, caption: str, infos: dict
     ) -> tuple[list[int], str]:
-        """
-        uses an LLM to rank images and generate an explanation based on the combined panoramic view image, caption, and infos
-
-        args:
-            combined_image: the combined panoramic view image
-            caption: description of the desired output images
-            infos: related information about each image and the person
-
-        returns:
-            a tuple containing
-                - a list of indices of the newly ranked images from most matched to least matched
-                - an explanation from the LLM for the best item choice
-        """
         base64_image = self.encode_image("combined_image.jpg")
         headers = {
             "Content-Type": "application/json",
@@ -302,18 +260,6 @@ class GenerativeReranker:
     def generate_ranking_explanation(
         self, caption: str, infos: dict
     ) -> tuple[list[int], str]:
-        """
-        uses an LLM to rank images and generate an explanation based on the combined panoramic view image, caption, and infos
-
-        args:
-            caption: description of the desired output images
-            infos: related information about each image and the person
-
-        returns:
-            a tuple containing
-                - a list of indices of the newly ranked images from most matched to least matched
-                - an explanation from the LLM for the best item choice
-        """
         base64_image = self.encode_image("combined_image.jpg")
         headers = {
             "Content-Type": "application/json",
@@ -372,33 +318,18 @@ class GenerativeReranker:
         return ranked_indices, explanation
 
     def encode_image(self, image_path):
-        """
-        encodes the image
-        """
         with open(image_path, "rb") as image_file:
             return base64.b64encode(image_file.read()).decode("utf-8")
 
     def load_cache(self):
-        """
-        loads the cache from the file if it exists
-        """
         if os.path.exists(self.cache_file):
             with open(self.cache_file, "r") as file:
                 return json.load(file)
         return {}
 
     def save_cache(self):
-        """
-        saves the current cache to the file cache.json
-        """
         with open(self.cache_file, "w") as file:
             json.dump(self.cache, file)
 
     def generate_cache_key(self, caption, infos):
-        """
-        generates a unique cache key based on the caption and infos
-
-        returns:
-            a string that represents a unique cache key
-        """
         return f"{caption}_{json.dumps(infos, sort_keys=True)}"
