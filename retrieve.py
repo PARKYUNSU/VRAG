@@ -1,12 +1,12 @@
 import os
 import pickle
 from typing import Dict
-from magiclens.data_utils import build_circo_dataset
-from magiclens.data_utils import build_fiq_dataset
+from model.utils import build_circo_dataset
+from model.utils import build_fiq_dataset
 from flax import serialization
 import jax
 import jax.numpy as jnp
-from magiclens.model import MagicLens
+from model.model import MagicLens
 from scenic.projects.baselines.clip import tokenizer as clip_tokenizer
 import numpy as np
 from PIL import Image
