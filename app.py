@@ -1,7 +1,7 @@
 import streamlit as st
 from retrieve import Retriever
 from pymilvus import MilvusClient
-from reranker import GenerativeReranker
+from rank import GenerativeReranker
 from cfg import Config
 from PIL import Image
 import json
