@@ -1,0 +1,7 @@
+streamlit
+pymilvus
+Pillow
+numpy
+opencv-python
+datasets
+openai
