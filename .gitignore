@@ -4,3 +4,11 @@
 /images
 /scenic
 *.pkl
+__pycache__/retrieve.cpython-312.pyc
+__pycache__/cfg.cpython-312.pyc
+__pycache__/rank.cpython-312.pyc
+categories_origin.txt
+milvus.db
+model/__pycache__/layers.cpython-312.pyc
+model/__pycache__/model.cpython-312.pyc
+model/__pycache__/utils.cpython-312.pyc
