@@ -81,3 +81,22 @@ python index.py
 ```bash
 streamlit run app.py
 ```
+
+---
+## APP 설명서
+
+### 1. 이미지를 업로드 합니다.
+<img src='https://github.com/user-attachments/assets/227e4123-ba35-4008-a4ab-bcd8dcb93bbd' width=400>
+
+### 2. Query(질문)을 작성합니다.
+```text
+Any item with theme of this image
+```
+<img src="https://github.com/user-attachments/assets/3366a833-4d02-4c6a-93ea-9275e9fb7e24" width=400>
+
+
+### 3. 결과 이미지
+
+<img src="https://github.com/user-attachments/assets/604fe4ed-b0cc-4f75-8b92-5f3803c81de9" width=600>
+
+| 해당 예시 이미지는 로컬 용량 문제로 DB를 적게 설정한 이미지입니다.
