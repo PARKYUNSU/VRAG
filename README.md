@@ -2,7 +2,7 @@
 
 이 프로젝트는 이미지와 텍스트를 결합한 Multimodal RAG(Retrieval-Augmented Generation)를 Streamlit으로 제공합니다.
 
-ipynb로 간단한 실험은 해당 [Link](https://github.com/PARKYUNSU/pytorch_imple/tree/main/Agentic_RAG/Multimodal_RAG)를 참고하세요.
+ipynb로 간단한 실험은 다음 [Link](https://github.com/PARKYUNSU/pytorch_imple/tree/main/Agentic_RAG/Multimodal_RAG)를 참고하세요.
 
 ## Prerequisites
 - Python 3.8 이상
