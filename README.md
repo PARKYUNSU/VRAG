@@ -97,6 +97,6 @@ Any item with theme of this image
 
 ### 3. 결과 이미지
 
-<img src="https://github.com/user-attachments/assets/604fe4ed-b0cc-4f75-8b92-5f3803c81de9" width=400>
+<img src="https://github.com/user-attachments/assets/604fe4ed-b0cc-4f75-8b92-5f3803c81de9" width=600>
 
 | 해당 예시 이미지는 로컬 용량 문제로 DB를 적게 설정한 이미지입니다.
