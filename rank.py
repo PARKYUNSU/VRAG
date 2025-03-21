@@ -5,7 +5,8 @@ import numpy as np
 import base64
 import requests
 from openai import AzureOpenAI
-
+from dotenv import load_dotenv
+load_dotenv()
 
 class GenerativeReranker:
     """

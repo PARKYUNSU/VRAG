@@ -12,3 +12,6 @@ milvus.db
 model/__pycache__/layers.cpython-312.pyc
 model/__pycache__/model.cpython-312.pyc
 model/__pycache__/utils.cpython-312.pyc
+.milvus.db.lock
+combined_image.jpg
+temp.jpg
