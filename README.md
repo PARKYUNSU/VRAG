@@ -42,7 +42,7 @@ gsutil cp -R gs://gresearch/magiclens/models ./
 pip install -r requirements.txt
 ```
 
-5. Configure Environment Variables
+### 5. Configure Environment Variables
 프로젝트에서 .env 파일을 아래와 같이 필요한 API 키 및 환경 변수를 설정합니다.
 
 ```dotenv
