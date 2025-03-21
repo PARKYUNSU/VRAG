@@ -58,6 +58,11 @@ AZURE_OPENAI_DEPLOYMENT_NAME=your_deployment_name
 ### 6. Vectorizing Image and Text with CLIP
 이미지와 텍스트를 벡터화 하기 위해서 다음의 코드를 실해합니다.
 
+Export
+```bash
+export PYTHONPATH=./project/VRAG/scenic:$PYTHONPATH
+```
+
 이미지 다운로드
 ```bash
 python data.py
